@@ -129,30 +129,103 @@ CD %commonPath%
 CALL 01checkStatus
 
 rem 6.添加远程仓库
-CD %batPath%
-CALL 07remoteAddOrigin
-CD %batPath%
-CALL 08firstOriginPush
-CD %commonPath%
-CALL 03addContentToText
-CD %batPath%
-CALL 09originPush
-CD %commonPath%
-CALL 04addText
-CD %batPath%
-CALL 09originPush
-CD %commonPath%
-CALL 05commit
-CD %batPath%
-CALL 09originPush
-CD %batPath%
-CALL 04deleteGitFolder
+rem CD %batPath%
+rem CALL 07remoteAddOrigin
+rem CD %batPath%
+rem CALL 08firstOriginPush
+rem CD %commonPath%
+rem CALL 03addContentToText
+rem CD %batPath%
+rem CALL 09originPush
+rem CD %commonPath%
+rem CALL 04addText
+rem CD %batPath%
+rem CALL 09originPush
+rem CD %commonPath%
+rem CALL 05commit
+rem CD %batPath%
+rem CALL 09originPush
+rem CD %batPath%
+rem CALL 04deleteGitFolder
 
 rem 7.从远程拉取仓库内容
 CD %batPath%
 CALL 01creatGitFolder
 CD %batPath%
 CALL 10CloneGit
+CD %batPath%
+CALL 04deleteGitFolder
+
+rem 8.创建与合并分支
+CD %batPath%
+CALL 01creatGitFolder
+CD %batPath%
+CALL 02gitInit
+CD %batPath%
+CALL 03creatFolderAndText
+CD %commonPath%
+CALL 01checkStatus
+CD %commonPath%
+CALL 02checkDiffent
+CD %commonPath%
+CALL 03addContentToText
+CD %commonPath%
+CALL 04addText
+CD %commonPath%
+CALL 05commit
+CD %batPath%
+CALL 11creatDev
+CD %batPath%
+CALL 12checkBranch
+CD %commonPath%
+CALL 03addContentToText
+CD %commonPath%
+CALL 04addText
+CD %commonPath%
+CALL 05commit
+CD %batPath%
+CALL 13checkoutMaster
+CD %batPath%
+CALL 14mergeDev
+CD %batPath%
+CALL 15deleteDev
+CD %batPath%
+CALL 12checkBranch
+
+rem 9.解决冲突
+CD %batPath%
+CALL 11creatDev
+CD %batPath%
+CALL 12checkBranch
+CD %commonPath%
+CALL 03addContentToText
+CD %commonPath%
+CALL 04addText
+CD %commonPath%
+CALL 05commit
+CD %batPath%
+CALL 13checkoutMaster
+CD %commonPath%
+CALL 15addOtherContentToText
+CD %commonPath%
+CALL 04addText
+CD %commonPath%
+CALL 05commit
+CD %batPath%
+CALL 14mergeDev
+CD %commonPath%
+CALL 01checkStatus
+CD %commonPath%
+CALL 04addText
+CD %commonPath%
+CALL 05commit
+CD %batPath%
+CALL 16checkBranchLog
+CD %batPath%
+CALL 15deleteDev
+CD %batPath%
+CALL 12checkBranch
+
 
 
 
