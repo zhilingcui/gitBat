@@ -226,6 +226,81 @@ CALL 15deleteDev
 CD %batPath%
 CALL 12checkBranch
 
+rem 9.use merge --no -ff
+CD %batPath%
+CALL 11creatDev
+CD %batPath%
+CALL 12checkBranch
+CD %commonPath%
+CALL 03addContentToText
+CD %commonPath%
+CALL 04addText
+CD %commonPath%
+CALL 05commit
+CD %batPath%
+CALL 13checkoutMaster
+CD %batPath%
+CALL 17mergeNoFf
+CD %commonPath%
+CALL 06checkLog
+CD %batPath%
+CALL 15deleteDev
+CD %batPath%
+CALL 12checkBranch
+CD %commonPath%
+CALL 06checkLog
+
+rem 10.use stash
+CD %batPath%
+CALL 11creatDev
+CD %batPath%
+CALL 12checkBranch
+CD %commonPath%
+CALL 03addContentToText
+CD %commonPath%
+CALL 01checkStatus
+CD %batPath%
+CALL 23stashList
+CD %batPath%
+CALL 18gitStash
+CD %batPath%
+CALL 23stashList
+CD %batPath%
+CALL 13checkoutMaster
+CD %batPath%
+CALL 19creatBugDev
+CD %batPath%
+CALL 12checkBranch
+CD %commonPath%
+CALL 15addOtherContentToText
+CD %commonPath%
+CALL 04addText
+CD %commonPath%
+CALL 05commit
+CD %batPath%
+CALL 13checkoutMaster
+CD %batPath%
+CALL 20mergeBugDev
+CD %batPath%
+CALL 16checkBranchLog
+CD %batPath%
+CALL 21deleteBugDev 
+CD %batPath%
+CALL 12checkBranch
+CD %batPath%
+CALL 22checkoutDev
+CD %batPath%
+CALL 12checkBranch
+CD %commonPath%
+CALL 01checkStatus
+CD %batPath%
+CALL 23stashList
+CD %batPath%
+CALL 24stashPop
+CD %batPath%
+CALL 23stashList
+
+
 
 
 
