@@ -299,6 +299,34 @@ CD %batPath%
 CALL 24stashPop
 CD %batPath%
 CALL 23stashList
+CD %batPath%
+CALL 13checkoutMaster
+CD %batPath%
+CALL 15deleteDev
+CD %batPath%
+CALL 12checkBranch
+
+rem 11.delete branch
+CD %batPath%
+CALL 11creatDev
+CD %batPath%
+CALL 12checkBranch
+CD %commonPath%
+CALL 03addContentToText
+CD %commonPath%
+CALL 04addText
+CD %commonPath%
+CALL 05commit
+CD %batPath%
+CALL 13checkoutMaster
+CD %batPath%
+CALL 12checkBranch
+CD %batPath%
+CALL 15deleteDev
+CD %batPath%
+CALL 25deleteBranchD
+CD %batPath%
+CALL 12checkBranch
 
 
 
